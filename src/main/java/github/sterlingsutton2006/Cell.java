@@ -3,15 +3,17 @@ package github.sterlingsutton2006;
 public class Cell {
     // Attributes
     private boolean isAlive;
-    private int numAliveNeighbors;
 
     // Methods
-    public void setAlive(boolean isAlive) {
-        this.isAlive = isAlive;
+    public Cell() {
+        isAlive = false;
     }
-
-    public void setNumAliveNeighbors(int numAliveNeighbors) {
-        this.numAliveNeighbors = numAliveNeighbors;
+    public void setAlive(boolean isAlive) {
+        try {
+            this.isAlive = isAlive;
+        }
+        catch (Exception ignored) {
+        }
     }
 
     public boolean getAlive() {

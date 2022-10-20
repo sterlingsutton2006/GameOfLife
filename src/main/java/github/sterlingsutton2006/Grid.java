@@ -1,5 +1,7 @@
 package github.sterlingsutton2006;
 
+import java.util.Random;
+
 public class Grid {
     // Attributes
     private final int X_LENGTH = 30;
@@ -7,9 +9,26 @@ public class Grid {
     private Cell[][] grid = new Cell[X_LENGTH][Y_LENGTH];
 
     // Methods
+    public Grid() {
+        for (int x = 0; x < X_LENGTH; x++) {
+            for (int y = 0; y < Y_LENGTH; y++) {
+                grid[x][y] = new Cell();
+            }
+        }
+    }
+    public void populateGrid() {
+        Cell[][] nextGrid = Utility.copyGrid(grid);
+        Random rng = new Random();
+        for (int x = 0; x < X_LENGTH; x++) {
+            for (int y = 0; y < Y_LENGTH; y++) {
+                nextGrid[x][y].setAlive(rng.nextBoolean());
+            }
+        }
+        grid = Utility.copyGrid(nextGrid);
+    }
     public void nextGeneration() {
 
-        Cell[][] nextGrid = grid.clone();
+        Cell[][] nextGrid = Utility.copyGrid(grid);
         int numAliveNeighbors;
         boolean currentCellState = false;
 
@@ -44,5 +63,7 @@ public class Grid {
                 }
             }
         }
+
+        grid = Utility.copyGrid(nextGrid);
     }
 }
