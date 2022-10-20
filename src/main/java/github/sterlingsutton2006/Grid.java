@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Grid {
     // Attributes
-    private final int X_LENGTH = 30;
-    private final int Y_LENGTH = 30;
+    public final int X_LENGTH = 30;
+    public final int Y_LENGTH = 30;
     private Cell[][] grid = new Cell[X_LENGTH][Y_LENGTH];
 
     // Methods
@@ -16,6 +16,16 @@ public class Grid {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        for (int x = 0; x < X_LENGTH; x++) {
+            for (int y = 0; y < Y_LENGTH; y++) {
+
+            }
+        }
+    }
+
     public void populateGrid() {
         Cell[][] nextGrid = Utility.copyGrid(grid);
         Random rng = new Random();
