@@ -17,6 +17,15 @@ public class Grid {
         }
     }
 
+    public void spawnGlider() {
+        Cell[][] nextGrid = Utility.copyGrid(grid);
+        nextGrid[0][0].setAlive(true);
+        nextGrid[1][0].setAlive(true);
+        nextGrid[2][0].setAlive(true);
+        nextGrid[2][1].setAlive(true);
+
+    }
+
     public void populateGrid() {
         Cell[][] nextGrid = Utility.copyGrid(grid);
         Random rng = new Random();
@@ -68,8 +77,11 @@ public class Grid {
     }
 
     public void printGrid() {
+        System.out.println();
+        System.out.println();
+        System.out.println();
         try {
-            Thread.sleep(1000);
+            Thread.sleep(10);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
