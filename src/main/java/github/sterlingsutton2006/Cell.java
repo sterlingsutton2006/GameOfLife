@@ -8,6 +8,7 @@ public class Cell {
     public Cell() {
         isAlive = false;
     }
+
     public void setAlive(boolean isAlive) {
         this.isAlive = isAlive;
     }

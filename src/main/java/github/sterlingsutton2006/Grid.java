@@ -17,15 +17,6 @@ public class Grid {
         }
     }
 
-    @Override
-    public String toString() {
-        for (int x = 0; x < X_LENGTH; x++) {
-            for (int y = 0; y < Y_LENGTH; y++) {
-
-            }
-        }
-    }
-
     public void populateGrid() {
         Cell[][] nextGrid = Utility.copyGrid(grid);
         Random rng = new Random();
@@ -36,6 +27,7 @@ public class Grid {
         }
         grid = Utility.copyGrid(nextGrid);
     }
+
     public void nextGeneration() {
 
         Cell[][] nextGrid = Utility.copyGrid(grid);
@@ -60,20 +52,37 @@ public class Grid {
                         if (currentCellState) {
                             numAliveNeighbors++;
                         }
-                    }
-                    catch (Exception ignored) {
+                    } catch (Exception ignored) {
                     }
                 }
 
-                if(numAliveNeighbors == 3 && !grid[x][y].getAlive()) {
+                if (numAliveNeighbors == 3 && !grid[x][y].getAlive()) {
                     nextGrid[x][y].setAlive(true);
-                }
-                else if(!(numAliveNeighbors == 2 || numAliveNeighbors == 3) && grid[x][y].getAlive()) {
+                } else if (!(numAliveNeighbors == 2 || numAliveNeighbors == 3) && grid[x][y].getAlive()) {
                     nextGrid[x][y].setAlive(false);
                 }
             }
         }
 
         grid = Utility.copyGrid(nextGrid);
+    }
+
+    public void printGrid() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Utility.clearConsole();
+        for (int x = 0; x < X_LENGTH; x++) {
+            System.out.println();
+            for (int y = 0; y < Y_LENGTH; y++) {
+                if (grid[x][y].getAlive()) {
+                    System.out.print("#");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+        }
     }
 }
