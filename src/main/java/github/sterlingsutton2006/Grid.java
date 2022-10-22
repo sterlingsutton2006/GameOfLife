@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Grid {
     // Attributes
-    public final int X_LENGTH = 30;
-    public final int Y_LENGTH = 30;
+    public final int X_LENGTH = 10;
+    public final int Y_LENGTH = 10;
     private Cell[][] grid = new Cell[X_LENGTH][Y_LENGTH];
 
     // Methods
@@ -17,12 +17,12 @@ public class Grid {
         }
     }
 
-    public void spawnGlider() {
+    public void spawnGlider(int coordX, int coordY) {
         Cell[][] nextGrid = Utility.copyGrid(grid);
-        nextGrid[0][0].setAlive(true);
-        nextGrid[1][0].setAlive(true);
-        nextGrid[2][0].setAlive(true);
-        nextGrid[2][1].setAlive(true);
+        nextGrid[coordX][coordY].setAlive(true);
+        nextGrid[1 + coordX][coordY].setAlive(true);
+        nextGrid[2 + coordX][coordY].setAlive(true);
+        nextGrid[2 + coordX][1 + coordY].setAlive(true);
 
     }
 
@@ -79,9 +79,13 @@ public class Grid {
     public void printGrid() {
         System.out.println();
         System.out.println();
+        for (int i = 0; i < X_LENGTH; i++) {
+            System.out.print("****");
+        }
         System.out.println();
+
         try {
-            Thread.sleep(10);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -93,6 +97,10 @@ public class Grid {
                     System.out.print("#");
                 } else {
                     System.out.print(" ");
+                }
+
+                if (y < Y_LENGTH - 1) {
+                    System.out.print(" | ");
                 }
             }
         }
