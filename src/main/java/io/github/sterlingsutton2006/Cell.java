@@ -9,11 +9,11 @@ public class Cell {
         isAlive = false;
     }
 
-    public void setAlive(boolean isAlive) {
-        this.isAlive = isAlive;
-    }
-
     public boolean getAlive() {
         return isAlive;
+    }
+
+    public void setAlive(boolean isAlive) {
+        this.isAlive = isAlive;
     }
 }

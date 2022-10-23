@@ -8,15 +8,6 @@ public class Grid {
     public final int Y_LENGTH;
     private Cell[][] grid;
 
-    // Methods
-    private boolean decideState(int numAliveNeighbors, boolean isAlive) {
-        if (isAlive) {
-            return (numAliveNeighbors == 2 || numAliveNeighbors == 3);
-        }
-        else {
-            return (numAliveNeighbors == 3);
-        }
-    }
     public Grid(int X_LENGTH, int Y_LENGTH) {
         this.X_LENGTH = X_LENGTH;
         this.Y_LENGTH = Y_LENGTH;
@@ -25,6 +16,15 @@ public class Grid {
             for (int y = 0; y < this.Y_LENGTH; y++) {
                 grid[x][y] = new Cell();
             }
+        }
+    }
+
+    // Methods
+    private boolean decideState(int numAliveNeighbors, boolean isAlive) {
+        if (isAlive) {
+            return (numAliveNeighbors == 2 || numAliveNeighbors == 3);
+        } else {
+            return (numAliveNeighbors == 3);
         }
     }
 
