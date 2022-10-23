@@ -1,8 +1,10 @@
 package io.github.sterlingsutton2006;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String @NotNull [] args) {
 
     Grid grid = null;
      try
@@ -10,7 +12,7 @@ public class Main {
          grid = new Grid(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
         }
     catch(Exception e)
-        { System.out.println("An Error has occured please try again"); }
+        { System.out.println("An error has occurred please try again"); }
 
     finally {
         if(grid == null){
