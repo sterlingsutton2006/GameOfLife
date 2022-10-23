@@ -1,4 +1,4 @@
-package github.sterlingsutton2006;
+package io.github.sterlingsutton2006;
 
 public class Utility {
     public static Cell[][] copyGrid(Cell[][] grid) {

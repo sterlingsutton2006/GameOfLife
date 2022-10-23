@@ -1,4 +1,4 @@
-package github.sterlingsutton2006;
+package io.github.sterlingsutton2006;
 
 public class Main {
 
