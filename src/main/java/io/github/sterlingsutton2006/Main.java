@@ -1,16 +1,14 @@
 package io.github.sterlingsutton2006;
 
-import org.jetbrains.annotations.NotNull;
-
 public class Main {
 
-    public static void main(String @NotNull [] args) {
+    public static void main(String[] args) {
 
         Grid grid = null;
         try {
             grid = new Grid(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
         } catch (Exception e) {
-            System.out.println("An error has occurred please try again");
+            System.out.println("Be sure to enter length and width command arguments.");
         } finally {
             if (grid == null) {
                 System.exit(1);
