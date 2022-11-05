@@ -3,7 +3,6 @@ package io.github.sterlingsutton2006;
 import java.util.Random;
 
 public class Grid {
-    // Attributes
     public final int X_LENGTH;
     public final int Y_LENGTH;
     private Cell[][] grid;
@@ -19,7 +18,6 @@ public class Grid {
         }
     }
 
-    // Methods
     private boolean decideState(int numAliveNeighbors, boolean isAlive) {
         if (isAlive) {
             return (numAliveNeighbors == 2 || numAliveNeighbors == 3);
